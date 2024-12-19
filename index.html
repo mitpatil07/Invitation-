@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui">
     <title>Wedding Invitation</title>
     <!-- Favicon -->
     <link rel="icon" href="logo.png" type="image/x-icon">
@@ -17,6 +17,7 @@
             align-items: center;
             height: 100vh;
             background-color: #f8f9fa;
+            overflow: hidden;
         }
         video {
             width: 100%;
@@ -107,6 +108,16 @@
             } else {
                 video.pause();
                 pauseButton.textContent = 'Play';
+            }
+        });
+
+        // Hide the browser navbar on mobile devices (for webkit browsers like Safari on iOS)
+        window.addEventListener('load', () => {
+            // This will hide the address bar on mobile browsers when the page is loaded
+            if (window.scrollY === 0) {
+                setTimeout(() => {
+                    window.scrollTo(0, 1);
+                }, 100);
             }
         });
     </script>
